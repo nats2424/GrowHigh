@@ -1,0 +1,416 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3D2E8A1A2C5E8F7A00123456 /* LevelUpTodoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2E8A192C5E8F7A00123456 /* LevelUpTodoApp.swift */; };
+		3D2E8A1C2C5E8F7A00123456 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2E8A1B2C5E8F7A00123456 /* ContentView.swift */; };
+		3D2E8A1E2C5E8F7C00123456 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D2E8A1D2C5E8F7C00123456 /* Assets.xcassets */; };
+		3D2E8A212C5E8F7C00123456 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D2E8A202C5E8F7C00123456 /* Preview Assets.xcassets */; };
+		3D2E8A232C5E8F7C00123456 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2E8A222C5E8F7C00123456 /* Persistence.swift */; };
+		3D2E8A262C5E8F7C00123456 /* LevelUpTodo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3D2E8A242C5E8F7C00123456 /* LevelUpTodo.xcdatamodeld */; };
+		3D2E8A2C2C5E8F7D00123456 /* TodoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2E8A2B2C5E8F7D00123456 /* TodoListView.swift */; };
+		3D2E8A2E2C5E8F7D00123456 /* TodoRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2E8A2D2C5E8F7D00123456 /* TodoRowView.swift */; };
+		3D2E8A302C5E8F7D00123456 /* AddTodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2E8A2F2C5E8F7D00123456 /* AddTodoView.swift */; };
+		3D2E8A322C5E8F7D00123456 /* UserProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2E8A312C5E8F7D00123456 /* UserProgressView.swift */; };
+		3D2E8A342C5E8F7D00123456 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2E8A332C5E8F7D00123456 /* AvatarView.swift */; };
+		3D2E8A362C5E8F7D00123456 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2E8A352C5E8F7D00123456 /* StatsView.swift */; };
+		3D2E8A382C5E8F7D00123456 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2E8A372C5E8F7D00123456 /* UserService.swift */; };
+		3D2E8A3A2C5E8F7D00123456 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2E8A392C5E8F7D00123456 /* NotificationService.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3D2E8A162C5E8F7A00123456 /* LevelUpTodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LevelUpTodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D2E8A192C5E8F7A00123456 /* LevelUpTodoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelUpTodoApp.swift; sourceTree = "<group>"; };
+		3D2E8A1B2C5E8F7A00123456 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		3D2E8A1D2C5E8F7C00123456 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3D2E8A202C5E8F7C00123456 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3D2E8A222C5E8F7C00123456 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		3D2E8A252C5E8F7C00123456 /* LevelUpTodo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LevelUpTodo.xcdatamodel; sourceTree = "<group>"; };
+		3D2E8A2B2C5E8F7D00123456 /* TodoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListView.swift; sourceTree = "<group>"; };
+		3D2E8A2D2C5E8F7D00123456 /* TodoRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoRowView.swift; sourceTree = "<group>"; };
+		3D2E8A2F2C5E8F7D00123456 /* AddTodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoView.swift; sourceTree = "<group>"; };
+		3D2E8A312C5E8F7D00123456 /* UserProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProgressView.swift; sourceTree = "<group>"; };
+		3D2E8A332C5E8F7D00123456 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
+		3D2E8A352C5E8F7D00123456 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
+		3D2E8A372C5E8F7D00123456 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		3D2E8A392C5E8F7D00123456 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3D2E8A132C5E8F7A00123456 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3D2E8A0D2C5E8F7A00123456 = {
+			isa = PBXGroup;
+			children = (
+				3D2E8A182C5E8F7A00123456 /* LevelUpTodo */,
+				3D2E8A172C5E8F7A00123456 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3D2E8A172C5E8F7A00123456 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3D2E8A162C5E8F7A00123456 /* LevelUpTodo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3D2E8A182C5E8F7A00123456 /* LevelUpTodo */ = {
+			isa = PBXGroup;
+			children = (
+				3D2E8A192C5E8F7A00123456 /* LevelUpTodoApp.swift */,
+				3D2E8A1B2C5E8F7A00123456 /* ContentView.swift */,
+				3D2E8A222C5E8F7C00123456 /* Persistence.swift */,
+				3D2E8A3B2C5E8F7D00123456 /* Views */,
+				3D2E8A3C2C5E8F7D00123456 /* Services */,
+				3D2E8A1D2C5E8F7C00123456 /* Assets.xcassets */,
+				3D2E8A242C5E8F7C00123456 /* LevelUpTodo.xcdatamodeld */,
+				3D2E8A1F2C5E8F7C00123456 /* Preview Content */,
+			);
+			path = LevelUpTodo;
+			sourceTree = "<group>";
+		};
+		3D2E8A3B2C5E8F7D00123456 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3D2E8A2B2C5E8F7D00123456 /* TodoListView.swift */,
+				3D2E8A2D2C5E8F7D00123456 /* TodoRowView.swift */,
+				3D2E8A2F2C5E8F7D00123456 /* AddTodoView.swift */,
+				3D2E8A312C5E8F7D00123456 /* UserProgressView.swift */,
+				3D2E8A332C5E8F7D00123456 /* AvatarView.swift */,
+				3D2E8A352C5E8F7D00123456 /* StatsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3D2E8A3C2C5E8F7D00123456 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				3D2E8A372C5E8F7D00123456 /* UserService.swift */,
+				3D2E8A392C5E8F7D00123456 /* NotificationService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		3D2E8A1F2C5E8F7C00123456 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				3D2E8A202C5E8F7C00123456 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3D2E8A152C5E8F7A00123456 /* LevelUpTodo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3D2E8A292C5E8F7C00123456 /* Build configuration list for PBXNativeTarget "LevelUpTodo" */;
+			buildPhases = (
+				3D2E8A122C5E8F7A00123456 /* Sources */,
+				3D2E8A132C5E8F7A00123456 /* Frameworks */,
+				3D2E8A142C5E8F7A00123456 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LevelUpTodo;
+			productName = LevelUpTodo;
+			productReference = 3D2E8A162C5E8F7A00123456 /* LevelUpTodo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3D2E8A0E2C5E8F7A00123456 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					3D2E8A152C5E8F7A00123456 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = 3D2E8A112C5E8F7A00123456 /* Build configuration list for PBXProject "LevelUpTodo" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3D2E8A0D2C5E8F7A00123456;
+			productRefGroup = 3D2E8A172C5E8F7A00123456 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3D2E8A152C5E8F7A00123456 /* LevelUpTodo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3D2E8A142C5E8F7A00123456 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D2E8A212C5E8F7C00123456 /* Preview Assets.xcassets in Resources */,
+				3D2E8A1E2C5E8F7C00123456 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3D2E8A122C5E8F7A00123456 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D2E8A232C5E8F7C00123456 /* Persistence.swift in Sources */,
+				3D2E8A1C2C5E8F7A00123456 /* ContentView.swift in Sources */,
+				3D2E8A1A2C5E8F7A00123456 /* LevelUpTodoApp.swift in Sources */,
+				3D2E8A2C2C5E8F7D00123456 /* TodoListView.swift in Sources */,
+				3D2E8A2E2C5E8F7D00123456 /* TodoRowView.swift in Sources */,
+				3D2E8A302C5E8F7D00123456 /* AddTodoView.swift in Sources */,
+				3D2E8A322C5E8F7D00123456 /* UserProgressView.swift in Sources */,
+				3D2E8A342C5E8F7D00123456 /* AvatarView.swift in Sources */,
+				3D2E8A362C5E8F7D00123456 /* StatsView.swift in Sources */,
+				3D2E8A382C5E8F7D00123456 /* UserService.swift in Sources */,
+				3D2E8A3A2C5E8F7D00123456 /* NotificationService.swift in Sources */,
+				3D2E8A262C5E8F7C00123456 /* LevelUpTodo.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		3D2E8A272C5E8F7C00123456 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3D2E8A282C5E8F7C00123456 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3D2E8A2A2C5E8F7C00123456 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"LevelUpTodo/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.LevelUpTodo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3D2E8A2B2C5E8F7C00123456 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"LevelUpTodo/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.LevelUpTodo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3D2E8A112C5E8F7A00123456 /* Build configuration list for PBXProject "LevelUpTodo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D2E8A272C5E8F7C00123456 /* Debug */,
+				3D2E8A282C5E8F7C00123456 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3D2E8A292C5E8F7C00123456 /* Build configuration list for PBXNativeTarget "LevelUpTodo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D2E8A2A2C5E8F7C00123456 /* Debug */,
+				3D2E8A2B2C5E8F7C00123456 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3D2E8A242C5E8F7C00123456 /* LevelUpTodo.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3D2E8A252C5E8F7C00123456 /* LevelUpTodo.xcdatamodel */,
+			);
+			currentVersion = 3D2E8A252C5E8F7C00123456 /* LevelUpTodo.xcdatamodel */;
+			path = LevelUpTodo.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 3D2E8A0E2C5E8F7A00123456 /* Project object */;
+}
