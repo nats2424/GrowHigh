@@ -28,28 +28,25 @@ class UserService: ObservableObject {
         // 初期アバターを作成
         createInitialAvatars(for: newUser)
         
-        try? viewContext.save()
+        saveContext()
         return newUser
     }
     
     func addExperience(to user: User, amount: Int) -> Bool {
-        user.experience += Int32(amount)
-        user.totalExperience += Int32(amount)
+        let oldLevel = Int(user.level)
         
-        var didLevelUp = false
+        // 新しい経験値システムを使用
+        user.addExperience(amount)
         
-        // レベルアップチェック
-        while user.experience >= user.experienceToNextLevel {
-            user.experience -= user.experienceToNextLevel
-            user.level += 1
-            user.experienceToNextLevel = calculateNextLevelRequirement(level: Int(user.level))
-            didLevelUp = true
-            
-            // アバターの解放チェック
-            unlockAvatarsForLevel(user: user, level: Int(user.level))
+        let newLevel = Int(user.level)
+        let didLevelUp = newLevel > oldLevel
+        
+        if didLevelUp {
+            // レガシーアバターシステムとの互換性を保持
+            unlockAvatarsForLevel(user: user, level: newLevel)
         }
         
-        try? viewContext.save()
+        saveContext()
         return didLevelUp
     }
     
@@ -57,7 +54,7 @@ class UserService: ObservableObject {
         user.experience = max(0, user.experience - Int32(amount))
         user.totalExperience = max(0, user.totalExperience - Int32(amount))
         
-        try? viewContext.save()
+        saveContext()
     }
     
     private func calculateNextLevelRequirement(level: Int) -> Int32 {
@@ -99,7 +96,7 @@ class UserService: ObservableObject {
     
     func updateUserName(_ user: User, newName: String) {
         user.name = newName
-        try? viewContext.save()
+        saveContext()
     }
     
     func changeAvatar(_ user: User, to avatarType: String) {
@@ -109,7 +106,15 @@ class UserService: ObservableObject {
         
         if let avatar = try? viewContext.fetch(request).first {
             user.currentAvatarType = avatarType
-            try? viewContext.save()
+            saveContext()
+        }
+    }
+    
+    func saveContext() {
+        do {
+            try viewContext.save()
+        } catch {
+            print("Error saving context: \(error)")
         }
     }
 }

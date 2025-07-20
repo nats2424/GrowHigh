@@ -6,6 +6,9 @@ struct MainGameView: View {
     @State private var showingTodoList = false
     @State private var showingStats = false
     @State private var showingAvatarSelection = false
+    @State private var showingGenderSelection = false
+    @State private var showingTaskTutorial = false
+    @State private var showingStatsTutorial = false
     
     var body: some View {
         GeometryReader { geometry in
@@ -189,6 +192,16 @@ struct MainGameView: View {
         }
         .onAppear {
             setupInitialUser()
+            checkFirstTimeUser()
+        }
+        .fullScreenCover(isPresented: $showingGenderSelection) {
+            GenderSelectionView(isPresented: $showingGenderSelection)
+        }
+        .fullScreenCover(isPresented: $showingTaskTutorial) {
+            TaskTutorialView(isPresented: $showingTaskTutorial)
+        }
+        .fullScreenCover(isPresented: $showingStatsTutorial) {
+            StatsTutorialView(isPresented: $showingStatsTutorial)
         }
     }
     
@@ -202,25 +215,102 @@ struct MainGameView: View {
         _ = userService.getOrCreateUser()
     }
     
+    private func checkFirstTimeUser() {
+        let hasCompletedGenderSelection = UserDefaults.standard.bool(forKey: "hasCompletedGenderSelection")
+        let hasCompletedTaskTutorial = UserDefaults.standard.bool(forKey: "hasCompletedTaskTutorial")
+        let hasCompletedStatsTutorial = UserDefaults.standard.bool(forKey: "hasCompletedStatsTutorial")
+        
+        if !hasCompletedGenderSelection {
+            showingGenderSelection = true
+        } else if !hasCompletedTaskTutorial {
+            // 性別選択は完了しているが、タスクチュートリアルが未完了
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                showingTaskTutorial = true
+            }
+        } else if !hasCompletedStatsTutorial {
+            // タスクチュートリアルは完了しているが、ステータスチュートリアルが未完了
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                showingStatsTutorial = true
+            }
+        }
+    }
+    
     private func avatarImage(for avatarType: String?) -> String {
+        guard let user = getUser() else { return "boy1" }
+        
         switch avatarType {
+        // 基本職 (Lv 1-10)
+        case "starter_male":
+            return "boy1"
+        case "starter_female":
+            return "girl1"
+            
+        // 第1転職 (Lv 11-25)
+        case "wizard_male":
+            return "wizard_male"
+        case "wizard_female":
+            return "wizard_female"
+        case "warrior_male":
+            return "warrior_male"
+        case "warrior_female":
+            return "warrior_female"
+        case "guard":
+            return "guard"
+        case "thief_male":
+            return "thief_male"
+        case "thief_female":
+            return "thief_female"
+            
+        // 第2転職 (Lv 26-50)
+        case "archmage_male":
+            return "archmage_male"
+        case "archmage_female":
+            return "archmage_female"
+        case "knight_male":
+            return "knight_male"
+        case "knight_female":
+            return "knight_female"
+            
+        // レガシー対応
         case "warrior":
-            return "boy1" // 戦士
+            return user.level >= 26 ? "knight_male" : "warrior_male"
         case "mage":
-            return "boy2" // 魔法使い
+            return user.level >= 26 ? "archmage_male" : "wizard_male"
         case "assassin":
-            return "girl1" // 暗殺者
+            return "thief_female"
         case "paladin":
-            return "boy1" // パラディン
+            return "knight_male"
         case "archmage":
-            return "boy2" // 大魔法使い
+            return "archmage_male"
+            
         default:
-            return "boy1" // デフォルト
+            return "boy1"
         }
     }
     
     private func avatarName(for avatarType: String?) -> String {
         switch avatarType {
+        // 基本職
+        case "starter_male", "starter_female":
+            return "新米冒険者"
+            
+        // 第1転職
+        case "wizard_male", "wizard_female":
+            return "魔法使い"
+        case "warrior_male", "warrior_female":
+            return "戦士"
+        case "guard":
+            return "護衛"
+        case "thief_male", "thief_female":
+            return "盗賊"
+            
+        // 第2転職  
+        case "archmage_male", "archmage_female":
+            return "大魔法使い"
+        case "knight_male", "knight_female":
+            return "騎士"
+            
+        // レガシー対応
         case "warrior":
             return "戦士"
         case "mage":
@@ -231,8 +321,9 @@ struct MainGameView: View {
             return "パラディン"
         case "archmage":
             return "大魔法使い"
+            
         default:
-            return "デフォルトハンター"
+            return "冒険者"
         }
     }
 }
