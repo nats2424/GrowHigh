@@ -1,6 +1,14 @@
 import Foundation
 import CoreData
 
+/**
+ * 経験値システム (N³式)
+ * 
+ * レベルNに必要な累積経験値 = N³
+ * 例: Lv1→0, Lv2→8, Lv3→27, Lv4→64, Lv5→125, Lv10→1000, Lv20→8000, Lv30→27000
+ * 
+ * タスク達成でレベルアップし、レベルが上がると新しいジョブが解放されます。
+ */
 class ExperienceService {
     static let shared = ExperienceService()
     
@@ -8,9 +16,12 @@ class ExperienceService {
     
     // MARK: - Experience Calculation
     
-    /// レベルアップに必要な経験値を計算
-    func experienceRequiredForLevel(_ level: Int) -> Int {
-        return level * 100  // レベル1=100EXP, レベル2=200EXP...
+    /// レベルNに到達するために必要な累積経験値を計算 (N³式)
+    func totalExperienceRequiredForLevel(_ level: Int) -> Int {
+        if level <= 1 {
+            return 0  // レベル1は0EXP（初期）
+        }
+        return level * level * level  // N³
     }
     
     /// タスク完了で得られる経験値を計算
@@ -25,19 +36,31 @@ class ExperienceService {
     
     // MARK: - Level Calculation
     
-    /// 現在の経験値から適切なレベルを計算
+    /// 現在の経験値から適切なレベルを計算 (N³式対応)
     func calculateLevel(from experience: Int) -> Int {
-        var level = 1
-        var totalExpRequired = 0
+        if experience <= 0 {
+            return 1
+        }
         
-        while totalExpRequired < experience {
-            totalExpRequired += experienceRequiredForLevel(level)
-            if totalExpRequired <= experience {
-                level += 1
+        // 二分探索でレベルを効率的に計算
+        var low = 1
+        var high = 100  // 最大レベル想定
+        
+        while low <= high {
+            let mid = (low + high) / 2
+            let expRequired = totalExperienceRequiredForLevel(mid)
+            let nextExpRequired = totalExperienceRequiredForLevel(mid + 1)
+            
+            if experience >= expRequired && experience < nextExpRequired {
+                return mid
+            } else if experience >= nextExpRequired {
+                low = mid + 1
+            } else {
+                high = mid - 1
             }
         }
         
-        return max(1, level - 1)
+        return low
     }
     
     /// 次のレベルまでの残り経験値を計算
@@ -48,13 +71,9 @@ class ExperienceService {
         return totalExpForNextLevel - currentExp
     }
     
-    /// 指定レベルまでの累積経験値を計算
-    func totalExperienceRequiredForLevel(_ level: Int) -> Int {
-        var total = 0
-        for i in 1..<level {
-            total += experienceRequiredForLevel(i)
-        }
-        return total
+    /// レベル間で必要な経験値を計算（現在のレベルから次のレベルまで）
+    func experienceRequiredBetweenLevels(from currentLevel: Int, to nextLevel: Int) -> Int {
+        return totalExperienceRequiredForLevel(nextLevel) - totalExperienceRequiredForLevel(currentLevel)
     }
     
     // MARK: - Job/Avatar Management
@@ -197,9 +216,16 @@ extension User {
         
         let expForCurrentLevel = service.totalExperienceRequiredForLevel(currentLevel)
         let expForNextLevel = service.totalExperienceRequiredForLevel(currentLevel + 1)
+        
+        // 現在レベル内での経験値進捗
         let expInCurrentLevel = currentExp - expForCurrentLevel
         let expRequiredForNextLevel = expForNextLevel - expForCurrentLevel
         
-        return Double(expInCurrentLevel) / Double(expRequiredForNextLevel)
+        // 進捗率を0.0-1.0の範囲で返す
+        if expRequiredForNextLevel <= 0 {
+            return 1.0
+        }
+        
+        return max(0.0, min(1.0, Double(expInCurrentLevel) / Double(expRequiredForNextLevel)))
     }
 }

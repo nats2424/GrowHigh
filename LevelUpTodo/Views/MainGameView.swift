@@ -66,13 +66,13 @@ struct MainGameView: View {
                                     .foregroundColor(.secondary)
                                 
                                 // 経験値バー
-                                ProgressView(value: Double(user.experience % 100), total: 100)
+                                ProgressView(value: user.progressToNextLevel(), total: 1.0)
                                     .progressViewStyle(LinearProgressViewStyle(tint: .purple))
                                     .frame(width: 200)
                                     .background(Color.white.opacity(0.3))
                                     .cornerRadius(10)
                                 
-                                Text("\(user.experience % 100)/100 EXP")
+                                Text(experienceText(for: user))
                                     .font(.caption)
                                     .foregroundColor(.secondary)
                             }
@@ -325,6 +325,17 @@ struct MainGameView: View {
         default:
             return "冒険者"
         }
+    }
+    
+    private func experienceText(for user: User) -> String {
+        let currentLevel = Int(user.level)
+        let currentExp = Int(user.experience)
+        let expForCurrentLevel = ExperienceService.shared.totalExperienceRequiredForLevel(currentLevel)
+        let expForNextLevel = ExperienceService.shared.totalExperienceRequiredForLevel(currentLevel + 1)
+        let expInCurrentLevel = currentExp - expForCurrentLevel
+        let expRequiredForNextLevel = expForNextLevel - expForCurrentLevel
+        
+        return "\(expInCurrentLevel)/\(expRequiredForNextLevel) EXP"
     }
 }
 

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1AA6212C2E0B70D700589E37 /* MainGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA6212B2E0B70D700589E37 /* MainGameView.swift */; };
-		1AA6212E2E0CBEA700589E37 /* Assets 2.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AA6212D2E0CBEA700589E37 /* Assets 2.xcassets */; };
 		3D2E8A1A2C5E8F7A00123456 /* LevelUpTodoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2E8A192C5E8F7A00123456 /* LevelUpTodoApp.swift */; };
 		3D2E8A1C2C5E8F7A00123456 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2E8A1B2C5E8F7A00123456 /* ContentView.swift */; };
 		3D2E8A1E2C5E8F7C00123456 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D2E8A1D2C5E8F7C00123456 /* Assets.xcassets */; };
@@ -23,11 +22,14 @@
 		3D2E8A362C5E8F7D00123456 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2E8A352C5E8F7D00123456 /* StatsView.swift */; };
 		3D2E8A382C5E8F7D00123456 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2E8A372C5E8F7D00123456 /* UserService.swift */; };
 		3D2E8A3A2C5E8F7D00123456 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2E8A392C5E8F7D00123456 /* NotificationService.swift */; };
+		7426B8E82C5E8F7D00123456 /* GenderSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7426B8E72C5E8F7D00123456 /* GenderSelectionView.swift */; };
+		E4A02B2E2C5E8F7D00123456 /* TaskTutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A02B2D2C5E8F7D00123456 /* TaskTutorialView.swift */; };
+		1C3B38592C5E8F7D00123456 /* StatsTutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3B38582C5E8F7D00123456 /* StatsTutorialView.swift */; };
+		2E1FB4682C5E8F7D00123456 /* ExperienceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1FB4672C5E8F7D00123456 /* ExperienceService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1AA6212B2E0B70D700589E37 /* MainGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainGameView.swift; sourceTree = "<group>"; };
-		1AA6212D2E0CBEA700589E37 /* Assets 2.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Assets 2.xcassets"; sourceTree = "<group>"; };
 		3D2E8A162C5E8F7A00123456 /* LevelUpTodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LevelUpTodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D2E8A192C5E8F7A00123456 /* LevelUpTodoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelUpTodoApp.swift; sourceTree = "<group>"; };
 		3D2E8A1B2C5E8F7A00123456 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -43,6 +45,10 @@
 		3D2E8A352C5E8F7D00123456 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
 		3D2E8A372C5E8F7D00123456 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		3D2E8A392C5E8F7D00123456 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		7426B8E72C5E8F7D00123456 /* GenderSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderSelectionView.swift; sourceTree = "<group>"; };
+		E4A02B2D2C5E8F7D00123456 /* TaskTutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTutorialView.swift; sourceTree = "<group>"; };
+		1C3B38582C5E8F7D00123456 /* StatsTutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsTutorialView.swift; sourceTree = "<group>"; };
+		2E1FB4672C5E8F7D00123456 /* ExperienceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +89,6 @@
 				3D2E8A1D2C5E8F7C00123456 /* Assets.xcassets */,
 				3D2E8A242C5E8F7C00123456 /* LevelUpTodo.xcdatamodeld */,
 				3D2E8A1F2C5E8F7C00123456 /* Preview Content */,
-				1AA6212D2E0CBEA700589E37 /* Assets 2.xcassets */,
 			);
 			path = LevelUpTodo;
 			sourceTree = "<group>";
@@ -106,6 +111,9 @@
 				3D2E8A312C5E8F7D00123456 /* UserProgressView.swift */,
 				3D2E8A332C5E8F7D00123456 /* AvatarView.swift */,
 				3D2E8A352C5E8F7D00123456 /* StatsView.swift */,
+				7426B8E72C5E8F7D00123456 /* GenderSelectionView.swift */,
+				E4A02B2D2C5E8F7D00123456 /* TaskTutorialView.swift */,
+				1C3B38582C5E8F7D00123456 /* StatsTutorialView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -115,6 +123,7 @@
 			children = (
 				3D2E8A372C5E8F7D00123456 /* UserService.swift */,
 				3D2E8A392C5E8F7D00123456 /* NotificationService.swift */,
+				2E1FB4672C5E8F7D00123456 /* ExperienceService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -178,7 +187,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D2E8A212C5E8F7C00123456 /* Preview Assets.xcassets in Resources */,
-				1AA6212E2E0CBEA700589E37 /* Assets 2.xcassets in Resources */,
 				3D2E8A1E2C5E8F7C00123456 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -202,6 +210,10 @@
 				3D2E8A362C5E8F7D00123456 /* StatsView.swift in Sources */,
 				3D2E8A382C5E8F7D00123456 /* UserService.swift in Sources */,
 				3D2E8A3A2C5E8F7D00123456 /* NotificationService.swift in Sources */,
+				7426B8E82C5E8F7D00123456 /* GenderSelectionView.swift in Sources */,
+				E4A02B2E2C5E8F7D00123456 /* TaskTutorialView.swift in Sources */,
+				1C3B38592C5E8F7D00123456 /* StatsTutorialView.swift in Sources */,
+				2E1FB4682C5E8F7D00123456 /* ExperienceService.swift in Sources */,
 				3D2E8A262C5E8F7C00123456 /* LevelUpTodo.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
