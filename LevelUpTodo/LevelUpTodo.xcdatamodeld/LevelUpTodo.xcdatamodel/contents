@@ -13,17 +13,25 @@
         <attribute name="createdAt" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="experienceReward" attributeType="Integer 32" defaultValueString="10" usesScalarValueType="YES"/>
         <attribute name="isCompleted" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="isRoutineTask" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="priority" attributeType="Integer 32" defaultValueString="1" usesScalarValueType="YES"/>
+        <attribute name="taskType" attributeType="String" defaultValueString="strength"/>
         <attribute name="title" attributeType="String"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="todos" inverseEntity="User"/>
     </entity>
     <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class">
         <attribute name="createdAt" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="creativity" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="currentAvatarType" optional="YES" attributeType="String"/>
+        <attribute name="endurance" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="experience" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="experienceToNextLevel" attributeType="Integer 32" defaultValueString="100" usesScalarValueType="YES"/>
+        <attribute name="focus" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="intelligence" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="lastTaskCompletionDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="level" attributeType="Integer 32" defaultValueString="1" usesScalarValueType="YES"/>
         <attribute name="name" attributeType="String"/>
+        <attribute name="strength" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="totalExperience" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="availableAvatars" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Avatar" inverseName="user" inverseEntity="Avatar"/>
         <relationship name="todos" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="TodoItem" inverseName="user" inverseEntity="TodoItem"/>

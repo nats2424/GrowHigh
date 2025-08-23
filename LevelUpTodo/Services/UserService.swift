@@ -104,7 +104,7 @@ class UserService: ObservableObject {
         let request: NSFetchRequest<Avatar> = Avatar.fetchRequest()
         request.predicate = NSPredicate(format: "user == %@ AND avatarType == %@ AND isUnlocked == YES", user, avatarType)
         
-        if let avatar = try? viewContext.fetch(request).first {
+        if (try? viewContext.fetch(request).first) != nil {
             user.currentAvatarType = avatarType
             saveContext()
         }

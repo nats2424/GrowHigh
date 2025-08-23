@@ -20,6 +20,15 @@ struct TodoRowView: View {
                     .foregroundColor(todo.isCompleted ? .secondary : .primary)
                 
                 HStack {
+                    // タスクタイプ表示
+                    if let taskType = TaskType(rawValue: todo.taskType ?? "strength") {
+                        Text(taskType.emoji)
+                            .font(.caption)
+                        Text(taskType.displayName)
+                            .font(.caption2)
+                            .foregroundColor(.secondary)
+                    }
+                    
                     Image(systemName: "star.fill")
                         .foregroundColor(.yellow)
                         .font(.caption)
@@ -50,13 +59,13 @@ struct TodoRowView: View {
                 todo.isCompleted = true
                 todo.completedAt = Date()
                 
-                // 経験値を追加
-                addExperience(amount: Int(todo.experienceReward))
+                // 経験値とステータスを追加
+                addExperienceAndStats(amount: Int(todo.experienceReward), taskType: todo.taskType ?? "strength")
             } else {
                 todo.isCompleted = false
                 todo.completedAt = nil
                 
-                // 経験値を減算
+                // 経験値を減算（ステータスは減算しない）
                 subtractExperience(amount: Int(todo.experienceReward))
             }
             
@@ -64,14 +73,15 @@ struct TodoRowView: View {
         }
     }
     
-    private func addExperience(amount: Int) {
+    private func addExperienceAndStats(amount: Int, taskType: String) {
         guard let user = getUser() else { return }
+        guard let taskTypeEnum = TaskType(rawValue: taskType) else { return }
         
-        user.experience += Int32(amount)
-        user.totalExperience += Int32(amount)
+        // 経験値を追加
+        user.addExperience(amount)
         
-        // レベルアップチェック
-        checkLevelUp(user: user)
+        // ステータスを成長
+        user.completeTask(taskType: taskTypeEnum)
     }
     
     private func subtractExperience(amount: Int) {
@@ -79,22 +89,10 @@ struct TodoRowView: View {
         
         user.experience = max(0, user.experience - Int32(amount))
         user.totalExperience = max(0, user.totalExperience - Int32(amount))
-    }
-    
-    private func checkLevelUp(user: User) {
-        while user.experience >= user.experienceToNextLevel {
-            user.experience -= user.experienceToNextLevel
-            user.level += 1
-            user.experienceToNextLevel = calculateNextLevelRequirement(level: Int(user.level))
-            
-            // レベルアップ通知（後で実装）
-            print("レベルアップ! 新しいレベル: \(user.level)")
-        }
-    }
-    
-    private func calculateNextLevelRequirement(level: Int) -> Int32 {
-        // レベルが上がるほど必要経験値が増加
-        return Int32(100 + (level - 1) * 50)
+        
+        // レベルの再計算
+        let newLevel = ExperienceService.shared.calculateLevel(from: Int(user.experience))
+        user.level = Int32(newLevel)
     }
     
     private func getUser() -> User? {

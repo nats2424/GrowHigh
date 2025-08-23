@@ -91,7 +91,7 @@ struct StatsTutorialView: View {
         }
         .sheet(isPresented: $showingStats) {
             NavigationView {
-                StatsView()
+                StatsView(navigationPath: .constant(NavigationPath()))
                     .navigationTitle("ステータス")
                     .navigationBarTitleDisplayMode(.inline)
                     .toolbar {
