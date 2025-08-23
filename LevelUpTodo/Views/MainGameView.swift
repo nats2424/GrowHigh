@@ -2,6 +2,53 @@ import SwiftUI
 import CoreData
 import Combine
 
+// MARK: - Debug Button Overlay for Testing
+struct DebugButtonOverlay: View {
+    var body: some View {
+        #if DEBUG
+        VStack {
+            HStack {
+                Spacer()
+                Button(action: {
+                    // クイックアクセスボタン
+                    let alert = UIAlertController(title: "🧪 Quick Debug", message: nil, preferredStyle: .actionSheet)
+                    
+                    alert.addAction(UIAlertAction(title: "🔄 新規ユーザー状態", style: .destructive) { _ in
+                        TestDataManager.shared.resetToNewUserState()
+                    })
+                    
+                    alert.addAction(UIAlertAction(title: "🎯 チュートリアルリセット", style: .default) { _ in
+                        TestDataManager.shared.resetTutorialStateOnly()
+                    })
+                    
+                    alert.addAction(UIAlertAction(title: "キャンセル", style: .cancel))
+                    
+                    if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                       let window = windowScene.windows.first {
+                        window.rootViewController?.present(alert, animated: true)
+                    }
+                }) {
+                    HStack {
+                        Image(systemName: "ladybug.fill")
+                            .foregroundColor(.red)
+                        Text("🧪")
+                            .font(.caption)
+                            .foregroundColor(.red)
+                    }
+                    .padding(8)
+                    .background(Color.black.opacity(0.7))
+                    .cornerRadius(8)
+                }
+            }
+            Spacer()
+        }
+        .padding()
+        #else
+        EmptyView()
+        #endif
+    }
+}
+
 // MARK: - Tutorial Manager (UI Highlight Type)
 class TutorialManager: ObservableObject {
     @Published var currentStep: TutorialStep = .taskTab
@@ -268,6 +315,10 @@ struct MainGameView: View {
         .overlay(
             // チュートリアルオーバーレイ
             TutorialOverlayView()
+        )
+        .overlay(
+            // デバッグボタンオーバーレイ（DEBUGビルドでのみ表示）
+            DebugButtonOverlay()
         )
         .onAppear {
             setupInitialUser()

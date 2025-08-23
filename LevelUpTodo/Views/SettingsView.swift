@@ -45,6 +45,34 @@ struct SettingsView: View {
                                 }
                             }
                             
+                            // テストデータ管理 (開発者向け)
+                            SettingsSectionView(
+                                title: "🧪 テストデータ管理 (開発者向け)",
+                                icon: "wrench.and.screwdriver.fill",
+                                color: .orange
+                            ) {
+                                Button(action: {
+                                    TestDataManager.shared.resetToNewUserState()
+                                }) {
+                                    SettingsRowView(icon: "arrow.counterclockwise.circle.fill", title: "新規ユーザー状態にリセット", color: .red)
+                                }
+                                Button(action: {
+                                    TestDataManager.shared.resetTutorialStateOnly()
+                                }) {
+                                    SettingsRowView(icon: "graduationcap.fill", title: "チュートリアルのみリセット", color: .orange)
+                                }
+                                Button(action: {
+                                    TestDataManager.shared.createTestData()
+                                }) {
+                                    SettingsRowView(icon: "testtube.2", title: "テストデータ作成", color: .blue)
+                                }
+                                Button(action: {
+                                    TestDataManager.shared.printCurrentDataState()
+                                }) {
+                                    SettingsRowView(icon: "info.circle.fill", title: "データ状態確認 (コンソール)", color: .gray)
+                                }
+                            }
+                            
                             // レベル・ゲーミフィケーション設定
                             SettingsSectionView(
                                 title: "レベル・ゲーミフィケーション設定",
